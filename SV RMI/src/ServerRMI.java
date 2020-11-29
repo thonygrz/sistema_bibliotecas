@@ -28,6 +28,26 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
         return n1 + n2;
     }
     
+    @Override
+    public String pedirLibro(String valor) throws RemoteException {
+        return "Metodo pedir libro";
+    }
+    
+    @Override
+    public String pedirAutor(String valor) throws RemoteException {
+        return "Metodo pedir autor";
+    }
+    
+    @Override
+    public String getTitle(String value) throws RemoteException {
+        return "Metodo getTitle Z39 Biblioteca A";
+    }
+    
+    @Override
+    public String getAuthor(String value) throws RemoteException {
+        return "Metodo getAuthor Z39 Biblioteca A";
+    } 
+    
     public static void main(String[] args) {
         InetAddress ip;
         String hostname;

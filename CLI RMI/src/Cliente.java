@@ -19,17 +19,28 @@ public class Cliente {
     
     private void connectServer() {
         try {
+            int suma;
+            String libro;
+            String autor;
+            
             // SI ES de A --> A, no pasa por el middleware
             // PEDIR LIBRO XX
             Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor A
             RMI interfaz = (RMI)registro.lookup("RemoteRMI");
-            int suma;
             suma = interfaz.sumar(8, 5); // llama a pedir libro en servidor A
             System.out.println("La suma es " + suma);
             
             // SI NO HAY EN SERVIDOR A, entonces va de A-->B por lo tanto pasa por el middleware
             // Transformar a Z39
             // Enviar A servidor B
+            
+            // ------------------------------------------------------------------
+            libro = interfaz.pedirLibro("100 años de soledad");
+            autor = interfaz.pedirAutor("Antonio Banderas");
+            
+            System.out.println(libro);
+            System.out.println(autor);
+            
         } catch (Exception ex){
             System.out.println(ex);
         }
