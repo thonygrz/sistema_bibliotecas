@@ -17,6 +17,14 @@ import java.rmi.server.UnicastRemoteObject;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.xml.parsers.DocumentBuilderFactory;  
+import javax.xml.parsers.DocumentBuilder;  
+import org.w3c.dom.Document;  
+import org.w3c.dom.NodeList;  
+import org.w3c.dom.Node;  
+import org.w3c.dom.Element;  
+import java.io.File;
+
 public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     public ServerRMI() throws RemoteException {
@@ -30,6 +38,7 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     @Override
     public String buscarTitulo(String valor) throws RemoteException {
+        this.buscarLibroPorTitulo();
         return "Metodo buscar titulo B";
     }
     
@@ -40,13 +49,61 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     @Override
     public String getTitle(String value) throws RemoteException {
-        return "Metodo getTitle Z39 Biblioteca B";
+        return this.buscarTitulo(value);
     }
     
     @Override
     public String getAuthor(String value) throws RemoteException {
-        return "Metodo getAuthor Z39 Biblioteca B";
-    } 
+        return this.buscarAutor(value);
+    }
+    
+    private void buscarLibroPorTitulo() {
+        try {  
+            File file = new File("C:\\Users\\Alexis\\Documents\\NetBeansProjects\\sistema_bibliotecas\\DataBase\\books.xml");  
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();  
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName()); 
+            
+            NodeList nodeList = doc.getElementsByTagName("libro");
+            
+            for (int itr = 0; itr < nodeList.getLength(); itr++){  
+                Node node = nodeList.item(itr);  
+                System.out.println("\nNode Name :" + node.getNodeName());  
+                if (node.getNodeType() == Node.ELEMENT_NODE){  
+                    Element eElement = (Element) node;  
+                    System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
+                    System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
+                    System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
+                    System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
+                }  
+            }  
+        }   
+        catch (Exception e){  
+            e.printStackTrace();
+        }  
+    }
+    
+    private void buscoarLibrosPorAutor() {
+    }
+    
+    private static void printNodeList(NodeList nodeList)  {  
+        for (int count = 0; count < nodeList.getLength(); count++){  
+            Node elemNode = nodeList.item(count);  
+            if (elemNode.getNodeType() == Node.ELEMENT_NODE){  
+                // get node name and value  
+                System.out.println("\nNode Name =" + elemNode.getNodeName()+ " [OPEN]");  
+                System.out.println("Node Content =" + elemNode.getTextContent());  
+                if (elemNode.hasChildNodes()){  
+                    //recursive call if the node has child nodes  
+                    printNodeList(elemNode.getChildNodes());  
+                }  
+                    System.out.println("Node Name =" + elemNode.getNodeName()+ " [CLOSE]");  
+            }  
+        }  
+    }  
     
     public static void main(String[] args) {
         InetAddress ip;

@@ -40,12 +40,12 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     @Override
     public String getTitle(String value) throws RemoteException {
-        return "";
+        return this.pedirLibro(value);
     }
     
     @Override
     public String getAuthor(String value) throws RemoteException {
-        return "";
+        return this.pedirAutor(value);
     } 
     
     public static void main(String[] args) {
