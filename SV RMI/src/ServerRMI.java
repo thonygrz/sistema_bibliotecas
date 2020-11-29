@@ -30,22 +30,22 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     @Override
     public String pedirLibro(String valor) throws RemoteException {
-        return "Metodo pedir libro";
+        return "";
     }
     
     @Override
     public String pedirAutor(String valor) throws RemoteException {
-        return "Metodo pedir autor";
+        return "";
     }
     
     @Override
     public String getTitle(String value) throws RemoteException {
-        return "Metodo getTitle Z39 Biblioteca A";
+        return "";
     }
     
     @Override
     public String getAuthor(String value) throws RemoteException {
-        return "Metodo getAuthor Z39 Biblioteca A";
+        return "";
     } 
     
     public static void main(String[] args) {
