@@ -28,7 +28,6 @@ public class Cliente {
             Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor A
             RMI interfaz = (RMI)registro.lookup("RemoteRMI");
             suma = interfaz.sumar(8, 5); // llama a pedir libro en servidor A
-            System.out.println("La suma es " + suma);
             
             // SI NO HAY EN SERVIDOR A, entonces va de A-->B por lo tanto pasa por el middleware
             // Transformar a Z39
@@ -38,6 +37,16 @@ public class Cliente {
             libro = interfaz.pedirLibro("100 años de soledad");
             autor = interfaz.pedirAutor("Antonio Banderas");
             
+            if (libro.contentEquals("") && autor.contentEquals("")) {
+                System.out.println("Entra");
+                registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor B
+                interfaz = (RMI)registro.lookup("RemoteRMIB");
+                suma = interfaz.sumar(8, 5); // llama a pedir libro en servidor B
+                libro = interfaz.getTitle("100 años de soledad");
+                autor = interfaz.getAuthor("Antonio Banderas");
+            }
+            
+            System.out.println("La suma es " + suma);
             System.out.println(libro);
             System.out.println(autor);
             

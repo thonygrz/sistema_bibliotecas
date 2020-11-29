@@ -55,8 +55,8 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
             ip = InetAddress.getLocalHost();
             hostname = ip.getHostName();
             
-            Registry registro = LocateRegistry.createRegistry(7777);
-            registro.rebind("RemoteRMI", new ServerRMI()); //mantenemos el servidor en escucha
+            Registry registro = LocateRegistry.createRegistry(7778);
+            registro.rebind("RemoteRMIB", new ServerRMI()); //mantenemos el servidor en escucha
             System.out.println("Servidor Corriendo en: " + ip);
             System.out.println("Servidor Corriendo en: " + hostname);
         } catch (RemoteException ex) {
