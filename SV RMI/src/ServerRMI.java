@@ -14,6 +14,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     public ServerRMI() throws RemoteException {
@@ -26,12 +29,21 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     }
     
     public static void main(String[] args) {
+        InetAddress ip;
+        String hostname;
         try {
+            ip = InetAddress.getLocalHost();
+            hostname = ip.getHostName();
+            
             Registry registro = LocateRegistry.createRegistry(7777);
             registro.rebind("RemoteRMI", new ServerRMI()); //mantenemos el servidor en escucha
-            System.out.println("Servido Activo");
+            System.out.println("Servidor Corriendo en: " + ip);
+            System.out.println("Servidor Corriendo en: " + hostname);
         } catch (RemoteException ex) {
             System.out.println(ex.getMessage());
+        }  catch (UnknownHostException e) {
+ 
+            e.printStackTrace();
         }
     }
 }
