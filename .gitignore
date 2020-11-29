@@ -6,3 +6,11 @@
 /SV RMI B/build/
 /CLI RMI B/build/
 /SV RMI B/dist/
+/CLI RMI/nbproject/private/
+/CLI RMI/build/
+/CLI RMI/dist/
+/SERVIDORR RMI/build/
+/SERVIDORR RMI/nbproject/private/
+/SV RMI/nbproject/private/
+/SERVIDORR RMI/dist/
+/SV RMI/build/

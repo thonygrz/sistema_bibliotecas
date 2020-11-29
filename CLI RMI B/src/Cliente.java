@@ -25,8 +25,8 @@ public class Cliente {
             
             // SI ES de A --> A, no pasa por el middleware
             // PEDIR LIBRO XX
-            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor A
-            RMI interfaz = (RMI)registro.lookup("RemoteRMI");
+            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor A
+            RMI interfaz = (RMI)registro.lookup("RemoteRMIB");
             suma = interfaz.sumar(8, 5); // llama a pedir libro en servidor A
             System.out.println("La suma es " + suma);
             

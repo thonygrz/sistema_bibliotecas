@@ -59,7 +59,7 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     
     private void buscarLibroPorTitulo() {
         try {  
-            File file = new File("C:\\Users\\Alexis\\Documents\\NetBeansProjects\\sistema_bibliotecas\\DataBase\\books.xml");  
+            File file = new File("C:\\Users\\Thony\\OneDrive\\Escritorio\\Respaldo-Anthony-febrero_2020\\Documentos\\UCAB\\9no semestre\\Sistemas distribuidos\\Proyecto 1\\proyecto\\sistema_bibliotecas\\DataBase\\books.xml");  
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
             Document doc = db.parse(file);
