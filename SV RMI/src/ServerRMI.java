@@ -24,11 +24,6 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public int sumar(int n1, int n2) throws RemoteException {
-        return n1 + n2;
-    }
-    
-    @Override
     public String[] pedirLibro(String valor) throws RemoteException {
         String[] libro = new String[1];
         return libro;

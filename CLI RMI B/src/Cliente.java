@@ -19,7 +19,6 @@ public class Cliente {
     
     private void connectServer() {
         try {
-            int suma;
             String[] libro;
             String autor;
             
@@ -27,8 +26,6 @@ public class Cliente {
             // PEDIR LIBRO XX
             Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor A
             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
-            suma = interfaz.sumar(8, 5); // llama a pedir libro en servidor A
-            System.out.println("La suma es " + suma);
             
             // SI NO HAY EN SERVIDOR A, entonces va de A-->B por lo tanto pasa por el middleware
             // Transformar a Z39
