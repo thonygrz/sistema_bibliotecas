@@ -25,7 +25,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;  
 import java.io.File;
 
-public class ServerRMI extends UnicastRemoteObject implements RMI {
+public class ServerRMI extends UnicastRemoteObject implements Middleware {
     
     public ServerRMI() throws RemoteException {
         super();
@@ -37,29 +37,10 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     }
     
     @Override
-    public String buscarTitulo(String valor) throws RemoteException {
-        this.buscarLibroPorTitulo();
-        return "Metodo buscar titulo B";
-    }
-    
-    @Override
-    public String buscarAutor(String valor) throws RemoteException {
-        return "Metodo buscar autor B";
-    }
-    
-    @Override
-    public String getTitle(String value) throws RemoteException {
-        return this.buscarTitulo(value);
-    }
-    
-    @Override
-    public String getAuthor(String value) throws RemoteException {
-        return this.buscarAutor(value);
-    }
-    
-    private void buscarLibroPorTitulo() {
-        try {  
-            File file = new File("C:\\Users\\Thony\\OneDrive\\Escritorio\\Respaldo-Anthony-febrero_2020\\Documentos\\UCAB\\9no semestre\\Sistemas distribuidos\\Proyecto 1\\proyecto\\sistema_bibliotecas\\DataBase\\books.xml");  
+    public String[] buscarTitulo(String valor) throws RemoteException {
+        String[] libro = new String[4];
+        try {
+            File file = new File("src\\DB\\books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
             Document doc = db.parse(file);
@@ -73,37 +54,43 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
                 Node node = nodeList.item(itr);  
                 System.out.println("\nNode Name :" + node.getNodeName());  
                 if (node.getNodeType() == Node.ELEMENT_NODE){  
-                    Element eElement = (Element) node;  
-                    System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
-                    System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
-                    System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
-                    System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
-                }  
-            }  
-        }   
+                    Element eElement = (Element) node;
+                    if (eElement.getElementsByTagName("titulo").item(0).getTextContent().contains(valor)) {
+                        libro[0] = eElement.getElementsByTagName("titulo").item(0).getTextContent();
+                        libro[1] = eElement.getElementsByTagName("autor").item(0).getTextContent();
+                        libro[2] = eElement.getElementsByTagName("editorial").item(0).getTextContent();
+                        libro[3] = eElement.getElementsByTagName("fecha").item(0).getTextContent();
+                        System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
+                        System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
+                        System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
+                        System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
+                    }
+                }
+            }
+        }
         catch (Exception e){  
             e.printStackTrace();
-        }  
+        }
+        
+        return libro;
     }
     
-    private void buscoarLibrosPorAutor() {
+    @Override
+    public String buscarAutor(String valor) throws RemoteException {
+        return "Metodo buscar autor B";
     }
     
-    private static void printNodeList(NodeList nodeList)  {  
-        for (int count = 0; count < nodeList.getLength(); count++){  
-            Node elemNode = nodeList.item(count);  
-            if (elemNode.getNodeType() == Node.ELEMENT_NODE){  
-                // get node name and value  
-                System.out.println("\nNode Name =" + elemNode.getNodeName()+ " [OPEN]");  
-                System.out.println("Node Content =" + elemNode.getTextContent());  
-                if (elemNode.hasChildNodes()){  
-                    //recursive call if the node has child nodes  
-                    printNodeList(elemNode.getChildNodes());  
-                }  
-                    System.out.println("Node Name =" + elemNode.getNodeName()+ " [CLOSE]");  
-            }  
-        }  
-    }  
+    @Override
+    public String[] getTitle(String value) throws RemoteException {
+        String[] libro;
+        libro = this.buscarTitulo(value);
+        return libro;
+    }
+    
+    @Override
+    public String getAuthor(String value) throws RemoteException {
+        return this.buscarAutor(value);
+    }   
     
     public static void main(String[] args) {
         InetAddress ip;
@@ -118,8 +105,7 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
             System.out.println("Servidor Corriendo en: " + hostname);
         } catch (RemoteException ex) {
             System.out.println(ex.getMessage());
-        }  catch (UnknownHostException e) {
- 
+        } catch (UnknownHostException e) {
             e.printStackTrace();
         }
     }
