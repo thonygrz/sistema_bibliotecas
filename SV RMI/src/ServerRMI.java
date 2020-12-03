@@ -70,8 +70,9 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String pedirAutor(String valor) throws RemoteException {
-        return "";
+    public String[] pedirAutor(String valor) throws RemoteException {
+        String[] libro = new String[1];
+        return libro;
     }
     
     @Override
@@ -82,7 +83,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String getAuthor(String value) throws RemoteException {
+    public String[] getAuthor(String value) throws RemoteException {
         return this.pedirAutor(value);
     } 
     

@@ -62,6 +62,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
                     }
                 }
             }
+            
         }
         catch (Exception e){  
             e.printStackTrace();
@@ -71,8 +72,42 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String buscarAutor(String valor) throws RemoteException {
-        return "Metodo buscar autor B";
+    public String[] buscarAutor(String valor) throws RemoteException {
+        String[] libro = new String[4];
+        try {
+            File file = new File("src\\DB\\books.xml");
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();  
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName()); 
+            
+            NodeList nodeList = doc.getElementsByTagName("libro");
+            
+            for (int itr = 0; itr < nodeList.getLength(); itr++){  
+                Node node = nodeList.item(itr);  
+                System.out.println("\nNode Name :" + node.getNodeName());  
+                if (node.getNodeType() == Node.ELEMENT_NODE){  
+                    Element eElement = (Element) node;
+                    if (eElement.getElementsByTagName("autor").item(0).getTextContent().contains(valor)) {
+                        libro[0] = eElement.getElementsByTagName("titulo").item(0).getTextContent();
+                        libro[1] = eElement.getElementsByTagName("autor").item(0).getTextContent();
+                        libro[2] = eElement.getElementsByTagName("editorial").item(0).getTextContent();
+                        libro[3] = eElement.getElementsByTagName("fecha").item(0).getTextContent();
+                        System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
+                        System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
+                        System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
+                        System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
+                    }
+                }
+            }
+            
+        }
+        catch (Exception e){  
+            e.printStackTrace();
+        }
+        return libro;
     }
     
     @Override
@@ -83,8 +118,10 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String getAuthor(String value) throws RemoteException {
-        return this.buscarAutor(value);
+    public String[] getAuthor(String value) throws RemoteException {
+        String[] libro;
+        libro = this.buscarAutor(value);
+        return libro;
     }   
     
     public static void main(String[] args) {
