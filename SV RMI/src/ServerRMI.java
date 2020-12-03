@@ -17,20 +17,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class ServerRMI extends UnicastRemoteObject implements RMI {
+public class ServerRMI extends UnicastRemoteObject implements Middleware {
     
     public ServerRMI() throws RemoteException {
         super();
     }
     
     @Override
-    public int sumar(int n1, int n2) throws RemoteException {
-        return n1 + n2;
-    }
-    
-    @Override
-    public String pedirLibro(String valor) throws RemoteException {
-        return "";
+    public String[] pedirLibro(String valor) throws RemoteException {
+        String[] libro = new String[1];
+        return libro;
     }
     
     @Override
@@ -39,7 +35,7 @@ public class ServerRMI extends UnicastRemoteObject implements RMI {
     }
     
     @Override
-    public String getTitle(String value) throws RemoteException {
+    public String[] getTitle(String value) throws RemoteException {
         return this.pedirLibro(value);
     }
     
