@@ -10,6 +10,7 @@
  */
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Cliente {
@@ -20,8 +21,8 @@ public class Cliente {
     
     private void connectServer() {
         try {
-            String libro[];
-            String autor[];
+            ArrayList<String> libro = new ArrayList();
+            ArrayList<ArrayList> autorLibros = new ArrayList();
             String biblioteca = "B";
             
             // SI ES de A --> A, no pasa por el middleware
@@ -38,37 +39,51 @@ public class Cliente {
                         
                         // ------------------------------------------------------------------
                         libro = interfaz.pedirLibro("100 años de soledad");
-                        autor = interfaz.pedirAutor("Antonio Banderas");
+                        autorLibros = interfaz.pedirAutor("Antonio Banderas");
                         
                         if (libro == null){
                             System.out.println("Libro no encontrado");
                         }
                         else {
-                            System.out.println(libro[0]);
-                            System.out.println(libro[1]);
-                            System.out.println(libro[2]);
-                            System.out.println(libro[3]);
+                            libro.forEach((item) -> System.out.println(item));
                             //System.out.println(autor);
                         }
+                        
+                        for(int i=0 ; i < autorLibros.size() ; i++) {
+                            for(int j=0 ; j < autorLibros.get(i).size() ; j++) {
+                                System.out.println(autorLibros.get(i).get(j));
+                            } 
+                        } 
                     }
                 case "B":
                     {
-                        Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor B
+                        Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7778); //pedir al servidor B
                         Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                         // llama a pedir libro en servidor B
-                        libro = interfaz.getTitle("100 años de soledad");
-                        autor = interfaz.getAuthor("Antonio Banderas");
+                        //libro = interfaz.getTitle("100 años de soledad");
+                        autorLibros = interfaz.getAuthor("Antonio Banderas");
                         
                         //System.out.println("La suma es " + suma);
                         if (libro == null){
                             System.out.println("Libro no encontrado");
                         }
                         else {
-                            System.out.println(libro[0]);
-                            System.out.println(libro[1]);
-                            System.out.println(libro[2]);
-                            System.out.println(libro[3]);
+                             libro.forEach((item) -> System.out.println(item));
                             //System.out.println(autor);
+                        }
+                        
+                        for(int i=0 ; i < autorLibros.size() ; i++) {
+                            for(int j=0 ; j < autorLibros.get(i).size() ; j++) {
+                                System.out.println(autorLibros.get(i).get(j));
+                            } 
+                        }
+                        
+                        for(ArrayList<ArrayList> items:autorLibros) {
+                            for(ArrayList<String> item: items) {
+                                for(String i: item){
+                                    System.out.println(i);
+                                }
+                            }  
                         }
                     }
                 case "C":
@@ -77,18 +92,21 @@ public class Cliente {
                         Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                         // llama a pedir libro en servidor c
                         libro = interfaz.getTitle("100 años de soledad");
-                        autor = interfaz.getAuthor("Antonio Banderas");
+                        autorLibros = interfaz.getAuthor("Antonio Banderas");
                         
                         if (libro == null){
                             System.out.println("Libro no encontrado");
                         }
                         else {
-                            System.out.println(libro[0]);
-                            System.out.println(libro[1]);
-                            System.out.println(libro[2]);
-                            System.out.println(libro[3]);
+                             libro.forEach((item) -> System.out.println(item));
                             //System.out.println(autor);
                         }
+                        
+                        for(int i=0 ; i < autorLibros.size() ; i++) {
+                            for(int j=0 ; j < autorLibros.get(i).size() ; j++) {
+                                System.out.println(autorLibros.get(i).get(j));
+                            } 
+                        } 
                     }
             }
         } catch (Exception ex){

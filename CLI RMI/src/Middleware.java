@@ -10,10 +10,11 @@
  */
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public interface Middleware extends Remote{
-    public String[] pedirLibro(String valor) throws RemoteException;
-    public String[] pedirAutor(String valor) throws RemoteException;
-    public String[] getTitle(String value) throws RemoteException;
-    public String[] getAuthor(String value) throws RemoteException;
+    public ArrayList pedirLibro(String valor) throws RemoteException;
+    public ArrayList pedirAutor(String valor) throws RemoteException;
+    public ArrayList getTitle(String value) throws RemoteException;
+    public ArrayList getAuthor(String value) throws RemoteException;
 }

@@ -24,6 +24,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;  
 import org.w3c.dom.Element;  
 import java.io.File;
+import java.util.ArrayList;
 
 public class ServerRMI extends UnicastRemoteObject implements Middleware {
     
@@ -32,10 +33,10 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String[] buscarTitulo(String valor) throws RemoteException {
-        String[] libro = new String[4];
+    public ArrayList buscarTitulo(String valor) throws RemoteException {
+        ArrayList libro = new ArrayList();
         try {
-            File file = new File("src\\DB\\books.xml");
+            File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
             Document doc = db.parse(file);
@@ -51,10 +52,10 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
                 if (node.getNodeType() == Node.ELEMENT_NODE){  
                     Element eElement = (Element) node;
                     if (eElement.getElementsByTagName("titulo").item(0).getTextContent().contains(valor)) {
-                        libro[0] = eElement.getElementsByTagName("titulo").item(0).getTextContent();
-                        libro[1] = eElement.getElementsByTagName("autor").item(0).getTextContent();
-                        libro[2] = eElement.getElementsByTagName("editorial").item(0).getTextContent();
-                        libro[3] = eElement.getElementsByTagName("fecha").item(0).getTextContent();
+                        libro.add(eElement.getElementsByTagName("titulo").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("autor").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("editorial").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("fecha").item(0).getTextContent());
                         System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
                         System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
                         System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
@@ -72,10 +73,11 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    public String[] buscarAutor(String valor) throws RemoteException {
-        String[] libro = new String[4];
+    public ArrayList buscarAutor(String valor) throws RemoteException {
+        ArrayList<ArrayList<String>> libros = new ArrayList();
+        
         try {
-            File file = new File("src\\DB\\books.xml");
+            File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
             Document doc = db.parse(file);
@@ -85,41 +87,40 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
             
             NodeList nodeList = doc.getElementsByTagName("libro");
             
-            for (int itr = 0; itr < nodeList.getLength(); itr++){  
-                Node node = nodeList.item(itr);  
-                System.out.println("\nNode Name :" + node.getNodeName());  
+            for (int itr = 0; itr < nodeList.getLength(); itr++){
+                Node node = nodeList.item(itr);
                 if (node.getNodeType() == Node.ELEMENT_NODE){  
                     Element eElement = (Element) node;
                     if (eElement.getElementsByTagName("autor").item(0).getTextContent().contains(valor)) {
-                        libro[0] = eElement.getElementsByTagName("titulo").item(0).getTextContent();
-                        libro[1] = eElement.getElementsByTagName("autor").item(0).getTextContent();
-                        libro[2] = eElement.getElementsByTagName("editorial").item(0).getTextContent();
-                        libro[3] = eElement.getElementsByTagName("fecha").item(0).getTextContent();
-                        System.out.println("Titulo: "+ eElement.getElementsByTagName("titulo").item(0).getTextContent());  
-                        System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
-                        System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
-                        System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
+                        ArrayList<String> libro = new ArrayList();
+                        libro.add(eElement.getElementsByTagName("titulo").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("autor").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("editorial").item(0).getTextContent());
+                        libro.add(eElement.getElementsByTagName("fecha").item(0).getTextContent());
+                        libros.add(libro);
+
                     }
                 }
             }
+            System.out.println(libros);
             
         }
         catch (Exception e){  
             e.printStackTrace();
         }
-        return libro;
+        return libros;
     }
     
     @Override
-    public String[] getTitle(String value) throws RemoteException {
-        String[] libro;
+    public ArrayList getTitle(String value) throws RemoteException {
+        ArrayList libro = new ArrayList();
         libro = this.buscarTitulo(value);
         return libro;
     }
     
     @Override
-    public String[] getAuthor(String value) throws RemoteException {
-        String[] libro;
+    public ArrayList getAuthor(String value) throws RemoteException {
+        ArrayList<String> libro = new ArrayList();
         libro = this.buscarAutor(value);
         return libro;
     }   

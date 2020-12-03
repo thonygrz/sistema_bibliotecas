@@ -34,7 +34,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     public String[] pedirLibro(String valor) throws RemoteException {
         String[] libro = new String[4];
         try {
-            File file = new File("src\\DB\\books.xml");
+            File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
             Document doc = db.parse(file);
