@@ -20,7 +20,7 @@ public class Cliente {
     private void connectServer() {
         try {
             String[] libro;
-            String autor;
+            String[] autor;
             
             // SI ES de A --> A, no pasa por el middleware
             // PEDIR LIBRO XX

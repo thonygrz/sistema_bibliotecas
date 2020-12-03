@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
 
 public interface Middleware extends Remote{
     public String[] pedirLibro(String valor) throws RemoteException;
-    public String pedirAutor(String valor) throws RemoteException;
+    public String[] pedirAutor(String valor) throws RemoteException;
     public String[] getTitle(String value) throws RemoteException;
-    public String getAuthor(String value) throws RemoteException;
+    public String[] getAuthor(String value) throws RemoteException;
 }
