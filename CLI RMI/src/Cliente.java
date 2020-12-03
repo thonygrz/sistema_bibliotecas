@@ -39,8 +39,17 @@ public class Cliente {
                         // ------------------------------------------------------------------
                         libro = interfaz.pedirLibro("100 años de soledad");
                         autor = interfaz.pedirAutor("Antonio Banderas");
-                        System.out.println(Arrays.toString(libro));
-                        System.out.println(autor);
+                        
+                        if (libro == null){
+                            System.out.println("Libro no encontrado");
+                        }
+                        else {
+                            System.out.println(libro[0]);
+                            System.out.println(libro[1]);
+                            System.out.println(libro[2]);
+                            System.out.println(libro[3]);
+                            //System.out.println(autor);
+                        }
                     }
                 case "B":
                     {
@@ -51,11 +60,16 @@ public class Cliente {
                         autor = interfaz.getAuthor("Antonio Banderas");
                         
                         //System.out.println("La suma es " + suma);
-                        System.out.println(libro[0]);
-                        System.out.println(libro[1]);
-                        System.out.println(libro[2]);
-                        System.out.println(libro[3]);
-                        //System.out.println(autor);
+                        if (libro == null){
+                            System.out.println("Libro no encontrado");
+                        }
+                        else {
+                            System.out.println(libro[0]);
+                            System.out.println(libro[1]);
+                            System.out.println(libro[2]);
+                            System.out.println(libro[3]);
+                            //System.out.println(autor);
+                        }
                     }
                 case "C":
                     {
@@ -65,8 +79,16 @@ public class Cliente {
                         libro = interfaz.getTitle("100 años de soledad");
                         autor = interfaz.getAuthor("Antonio Banderas");
                         
-                        System.out.println(libro);
-                        System.out.println(autor);
+                        if (libro == null){
+                            System.out.println("Libro no encontrado");
+                        }
+                        else {
+                            System.out.println(libro[0]);
+                            System.out.println(libro[1]);
+                            System.out.println(libro[2]);
+                            System.out.println(libro[3]);
+                            //System.out.println(autor);
+                        }
                     }
             }
         } catch (Exception ex){
