@@ -15,7 +15,6 @@ public class Cliente {
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
         cliente.connectServer();
-        cliente.connectServer();
     }
     
     private void connectServer() {
