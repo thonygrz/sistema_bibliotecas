@@ -15,28 +15,16 @@ public class Cliente {
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
         cliente.connectServer();
+        cliente.connectServer();
     }
     
     private void connectServer() {
-        try {
-            String[] libro;
-            String[] autor;
+        try { 
+            Peticion request = new Peticion("B","100 años de soledad","");
+            Peticion request2 = new Peticion("B","Luna lunera","");
+            request.start();
+            request2.start();
             
-            // SI ES de A --> A, no pasa por el middleware
-            // PEDIR LIBRO XX
-            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor A
-            Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
-            
-            // SI NO HAY EN SERVIDOR A, entonces va de A-->B por lo tanto pasa por el middleware
-            // Transformar a Z39
-            // Enviar A servidor B
-            
-            // ------------------------------------------------------------------
-            libro = interfaz.buscarTitulo("100 años de soledad");
-            autor = interfaz.buscarAutor("Antonio Banderas");
-            
-            System.out.println(libro);
-            System.out.println(autor);
             
         } catch (Exception ex){
             System.out.println(ex);
