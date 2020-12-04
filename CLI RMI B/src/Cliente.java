@@ -19,10 +19,11 @@ public class Cliente {
     
     private void connectServer() {
         try { 
-            Peticion request = new Peticion("B","100 años de soledad","");
-            Peticion request2 = new Peticion("B","Luna lunera","");
+            /* Peticion request = new Peticion("B","100 años de soledad","");
+            Peticion request2 = new Peticion("B","Luna lunera",""); */
+            Peticion request = new Peticion("B","","Antonio Banderas");
             request.start();
-            request2.start();
+            //request2.start();
             
             
         } catch (Exception ex){
