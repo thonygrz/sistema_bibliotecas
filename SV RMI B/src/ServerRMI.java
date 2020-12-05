@@ -37,7 +37,6 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     @Override
     public ArrayList buscarTitulo(String valor,String biblioteca) throws RemoteException {
         try{
-            
             //Crear el hilo
             Libro libro = new Libro(valor,biblioteca);
             //Ejecutamos el hilo en un bloque de synchronized
@@ -55,42 +54,22 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     }
     
     @Override
-    synchronized public ArrayList buscarAutor(String valor, String biblioteca) throws RemoteException {
-        ArrayList<ArrayList<String>> libros = new ArrayList();
-        
-        try {
-            File file = new File("src/DB/books.xml");
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();  
-            Document doc = db.parse(file);
-            doc.getDocumentElement().normalize();
-
-            System.out.println("Root element: " + doc.getDocumentElement().getNodeName()); 
-            
-            NodeList nodeList = doc.getElementsByTagName("libro");
-            
-            for (int itr = 0; itr < nodeList.getLength(); itr++){
-                Node node = nodeList.item(itr);
-                if (node.getNodeType() == Node.ELEMENT_NODE){  
-                    Element eElement = (Element) node;
-                    if (eElement.getElementsByTagName("autor").item(0).getTextContent().contains(valor)) {
-                        ArrayList<String> libro = new ArrayList();
-                        libro.add(eElement.getElementsByTagName("titulo").item(0).getTextContent());
-                        libro.add(eElement.getElementsByTagName("autor").item(0).getTextContent());
-                        libro.add(eElement.getElementsByTagName("editorial").item(0).getTextContent());
-                        libro.add(eElement.getElementsByTagName("fecha").item(0).getTextContent());
-                        libros.add(libro);
-
-                    }
-                }
+    public ArrayList buscarAutor(String valor, String biblioteca) throws RemoteException {
+        try{
+            //Crear el hilo
+            Autor autor = new Autor(valor,biblioteca);
+            //Ejecutamos el hilo en un bloque de synchronized
+            synchronized(this){
+                autor.start();
+                autor.join();
             }
-            System.out.println(libros);
-            
+    
+            return autor.libros;
         }
-        catch (Exception e){  
-            e.printStackTrace();
+        catch(Exception e){
+            System.out.println(e);
         }
-        return libros;
+        return null;
     }
     
     @Override
