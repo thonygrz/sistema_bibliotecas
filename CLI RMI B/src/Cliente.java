@@ -29,8 +29,8 @@ public class Cliente {
                 case "A":
                     {
                         // PEDIR LIBRO XX
-                        Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor A
-                        Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");
+                        /*Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor A
+                        Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");*/
                         // llama a pedir libro en servidor A
                         // SI NO HAY EN SERVIDOR A, entonces va de A-->B por lo tanto pasa por el middleware
                         // Transformar a Z39
@@ -59,8 +59,8 @@ public class Cliente {
                         Registry registro = LocateRegistry.getRegistry("192.168.56.1", 7778); //pedir al servidor B
                         Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                         // llama a pedir libro en servidor B
-                        libro = interfaz.getTitle("100 años de soledad","");
-                        //autorLibros = interfaz.getAuthor("Antonio Banderas","");
+                        //libro = interfaz.buscarTitulo("Los videos del puente de la Fuerzas Armadas PARTE II","");
+                        autorLibros = interfaz.buscarAutor("Antonio Banderas","");
                         
                         //System.out.println("La suma es " + suma);
                         if (libro == null){
@@ -87,7 +87,7 @@ public class Cliente {
                     }
                 case "C":
                     {
-                        Registry registro = LocateRegistry.getRegistry("192.168.56.1", 7778); //pedir al servidor c
+                       /*  Registry registro = LocateRegistry.getRegistry("192.168.56.1", 7778); //pedir al servidor c
                         Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                         // llama a pedir libro en servidor c
                         libro = interfaz.getTitle("100 años de soledad","C");
@@ -104,8 +104,8 @@ public class Cliente {
                         for(int i=0 ; i < autorLibros.size() ; i++) {
                             for(int j=0 ; j < autorLibros.get(i).size() ; j++) {
                                 System.out.println(autorLibros.get(i).get(j));
-                            } 
-                        } 
+                            }  
+                        } */
                     }
             }
         } catch (Exception ex){
