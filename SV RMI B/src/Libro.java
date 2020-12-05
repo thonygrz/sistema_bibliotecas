@@ -56,7 +56,7 @@ public class Libro extends Thread{
                 //System.out.println("\nNode Name :" + node.getNodeName());  
                 if (node.getNodeType() == Node.ELEMENT_NODE){  
                     Element eElement = (Element) node;
-                    if (eElement.getElementsByTagName("titulo").item(0).getTextContent().contains(this.getTitulo())) {
+                    if (eElement.getElementsByTagName("titulo").item(0).getTextContent().contentEquals(this.getTitulo())) {
                         System.out.println("Libro solicitado por cliente de la biblioteca "+this.getBiblioteca()+" : \n");
                         libro.add(eElement.getElementsByTagName("titulo").item(0).getTextContent());
                         libro.add(eElement.getElementsByTagName("autor").item(0).getTextContent());
