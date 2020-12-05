@@ -58,7 +58,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
                         System.out.println("Autor: "+ eElement.getElementsByTagName("autor").item(0).getTextContent());  
                         System.out.println("Editorial: "+ eElement.getElementsByTagName("editorial").item(0).getTextContent());  
                         System.out.println("Fecha: "+ eElement.getElementsByTagName("fecha").item(0).getTextContent()); 
-                    } 
+                    }
                 }
             }
         }
