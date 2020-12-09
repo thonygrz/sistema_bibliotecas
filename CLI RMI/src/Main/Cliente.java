@@ -13,6 +13,7 @@ package Main;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Cliente {
     public static void main(String[] args) {
@@ -26,6 +27,7 @@ public class Cliente {
             ArrayList<ArrayList> autorLibros = new ArrayList();
             String biblioteca = biblio;
             
+            
             // SI ES de A --> A, no pasa por el middleware
             switch (biblioteca) {
                 case "A":
@@ -38,6 +40,7 @@ public class Cliente {
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.pedirLibro(valor,"");
+                                // tm = new TrazaMovimientos(this.getBiblioteca(), "pedirAutor", this.getAutor(), new Date());
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
