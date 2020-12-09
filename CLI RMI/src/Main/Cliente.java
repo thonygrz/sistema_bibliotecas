@@ -13,6 +13,7 @@ package Main;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Cliente {
     public static void main(String[] args) {
@@ -26,18 +27,20 @@ public class Cliente {
             ArrayList<ArrayList> autorLibros = new ArrayList();
             String biblioteca = biblio;
             
+            
             // SI ES de A --> A, no pasa por el middleware
             switch (biblioteca) {
                 case "A":
                     {
                         try {
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7777); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.pedirLibro(valor,"");
+                                // tm = new TrazaMovimientos(this.getBiblioteca(), "pedirAutor", this.getAutor(), new Date());
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -83,13 +86,13 @@ public class Cliente {
                 case "B":
                     {
                         try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7778); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.getTitle(valor,"");
+                                libro = interfaz.getTitle(valor,"A");
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -105,7 +108,7 @@ public class Cliente {
                                 }
                             }
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.getAuthor(valor,"");
+                                autorLibros = interfaz.getAuthor(valor,"A");
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
@@ -135,13 +138,13 @@ public class Cliente {
                 case "C":
                     {
                        try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7779); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7779); //pedir al servidor B
                              Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                              // llama a pedir libro en servidor B
                              final StringBuilder builder = new StringBuilder();
 
                              if (tipoBusqueda.equals("libro")){
-                                 libro = interfaz.getTitle(valor,"");
+                                 libro = interfaz.getTitle(valor,"A");
 
                                  if (libro.size() == 0){
                                      System.out.println("Libro no encontrado");
@@ -157,7 +160,7 @@ public class Cliente {
                                  }
                              }
                              else if (tipoBusqueda.equals("autor")){
-                                 autorLibros = interfaz.getAuthor(valor,"");
+                                 autorLibros = interfaz.getAuthor(valor,"A");
 
                                  if (autorLibros.size() == 0){
                                      System.out.println("Autor no encontrado");

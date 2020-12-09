@@ -8,6 +8,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;  
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Libro extends Thread{
     private String titulo;
@@ -39,6 +40,8 @@ public class Libro extends Thread{
     @Override
     public void run(){
         String biblioteca = this.getBiblioteca();
+        TrazaMovimientos tm;
+       
         if(biblioteca.equals("")){   
             this.setBiblioteca("C");
         }
@@ -71,6 +74,14 @@ public class Libro extends Thread{
                     }
                 }
             }
+            
+            if (this.getBiblioteca().contentEquals("C")) {
+                tm = new TrazaMovimientos(this.getBiblioteca(), "encontrarVol", this.getTitulo(), new Date());
+            } else {
+                tm = new TrazaMovimientos(this.getBiblioteca(), "getTitle", this.getTitulo(), new Date());
+            }
+            
+            tm.guardarTraza();
             
         }
         catch (Exception e){  
