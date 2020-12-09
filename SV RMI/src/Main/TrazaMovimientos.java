@@ -28,12 +28,14 @@ public class TrazaMovimientos {
     }
     
     public void guardarTraza() {
+        File archivo;
         FileWriter fw = null;
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         try {
-            fw = new FileWriter("src/Log/logs.txt");
+            archivo = new File("src/Log/logs.txt");
+            fw = new FileWriter(archivo, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("Origen: Biblioteca " + this.origen + " - Metodo: " + this.metodo + "- Peticion: " + this.peticion + "- Fecha: " + df.format(fecha) + "\n");
+            bw.write("Origen: Biblioteca " + this.origen + " - Metodo: " + this.metodo + " - Peticion: " + this.peticion + " - Fecha: " + df.format(fecha) + "\n");
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
