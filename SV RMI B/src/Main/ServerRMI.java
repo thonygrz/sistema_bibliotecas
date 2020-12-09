@@ -38,9 +38,10 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
     
     @Override
     public ArrayList buscarTitulo(String valor,String biblioteca) throws RemoteException {
+        Libro libro = new Libro(valor,biblioteca);
         try{
             //Crear el hilo
-            Libro libro = new Libro(valor,biblioteca);
+            
             //Ejecutamos el hilo en un bloque de synchronized
             synchronized(this){
                 libro.start();
@@ -52,14 +53,14 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
         catch(Exception e){
             System.out.println(e);
         }
-        return null;
+        return libro.libro;
     }
     
     @Override
     public ArrayList buscarAutor(String valor, String biblioteca) throws RemoteException {
+        Autor autor = new Autor(valor,biblioteca);
         try{
             //Crear el hilo
-            Autor autor = new Autor(valor,biblioteca);
             //Ejecutamos el hilo en un bloque de synchronized
             synchronized(this){
                 autor.start();
@@ -71,7 +72,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
         catch(Exception e){
             System.out.println(e);
         }
-        return null;
+        return autor.libros;
     }
     
     @Override
