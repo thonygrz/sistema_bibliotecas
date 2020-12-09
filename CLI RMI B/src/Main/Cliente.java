@@ -31,7 +31,7 @@ public class Cliente {
                 case "A":
                     {
                         try {
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7777); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
@@ -83,7 +83,7 @@ public class Cliente {
                 case "B":
                     {
                         try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7778); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
@@ -135,7 +135,7 @@ public class Cliente {
                 case "C":
                     {
                        try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7779); //pedir al servidor B
                              Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                              // llama a pedir libro en servidor B
                              final StringBuilder builder = new StringBuilder();
