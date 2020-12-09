@@ -12,12 +12,12 @@ import Main.Cliente;
  *
  * @author Thony
  */
-public class UI extends javax.swing.JFrame {
+public class UI_B extends javax.swing.JFrame {
 
     /**
      * Creates new form UI
      */
-    public UI() {
+    public UI_B() {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(this);
@@ -107,7 +107,7 @@ public class UI extends javax.swing.JFrame {
 
         tituloLabel.setFont(new java.awt.Font("Montserrat SemiBold", 0, 36)); // NOI18N
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
-        tituloLabel.setText("Biblioteca XXX");
+        tituloLabel.setText("Biblioteca B");
         tituloPanel.add(tituloLabel);
 
         getContentPane().add(tituloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 60));
@@ -204,20 +204,21 @@ public class UI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_B.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI().setVisible(true);
+                new UI_B().setVisible(true);
             }
         });
     }
