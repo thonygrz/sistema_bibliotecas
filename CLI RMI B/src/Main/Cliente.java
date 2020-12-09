@@ -13,6 +13,7 @@ package Main;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Cliente {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class Cliente {
     }
     
     public String connectServer(String valor, String biblio, String tipoBusqueda) {
+        TrazaMovimientos tm;
         try {
             ArrayList<String> libro = new ArrayList();
             ArrayList<ArrayList> autorLibros = new ArrayList();
@@ -38,6 +40,8 @@ public class Cliente {
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.getTitle(valor,"B");
+                                tm = new TrazaMovimientos("A", "getTitle", valor, new Date());
+                                tm.guardarTraza();
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -54,7 +58,9 @@ public class Cliente {
                             }
                             else if (tipoBusqueda.equals("autor")){
                                 autorLibros = interfaz.getAuthor(valor,"B");
-
+                                tm = new TrazaMovimientos("A", "getAuthor", valor, new Date());
+                                tm.guardarTraza();
+                                
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
                                     return "Autor no encontrado";
@@ -90,6 +96,8 @@ public class Cliente {
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.buscarTitulo(valor,"");
+                                tm = new TrazaMovimientos("B", "buscarTitulo", valor, new Date());
+                                tm.guardarTraza();
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -106,6 +114,8 @@ public class Cliente {
                             }
                             else if (tipoBusqueda.equals("autor")){
                                 autorLibros = interfaz.buscarAutor(valor,"");
+                                tm = new TrazaMovimientos("B", "buscarAutor", valor, new Date());
+                                tm.guardarTraza();
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
@@ -142,6 +152,8 @@ public class Cliente {
 
                              if (tipoBusqueda.equals("libro")){
                                  libro = interfaz.getTitle(valor,"B");
+                                 tm = new TrazaMovimientos("C", "getTitle", valor, new Date());
+                                 tm.guardarTraza();
 
                                  if (libro.size() == 0){
                                      System.out.println("Libro no encontrado");
@@ -158,6 +170,8 @@ public class Cliente {
                              }
                              else if (tipoBusqueda.equals("autor")){
                                  autorLibros = interfaz.getAuthor(valor,"B");
+                                 tm = new TrazaMovimientos("C", "getAuthor", valor, new Date());
+                                 tm.guardarTraza();
 
                                  if (autorLibros.size() == 0){
                                      System.out.println("Autor no encontrado");

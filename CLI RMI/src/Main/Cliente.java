@@ -26,21 +26,22 @@ public class Cliente {
             ArrayList<String> libro = new ArrayList();
             ArrayList<ArrayList> autorLibros = new ArrayList();
             String biblioteca = biblio;
-            
+            TrazaMovimientos tm;
             
             // SI ES de A --> A, no pasa por el middleware
             switch (biblioteca) {
                 case "A":
                     {
                         try {
-                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("10.0.0.4", 7777); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.pedirLibro(valor,"");
-                                // tm = new TrazaMovimientos(this.getBiblioteca(), "pedirAutor", this.getAutor(), new Date());
+                                tm = new TrazaMovimientos("A", "pedirLibro", valor, new Date());
+                                tm.guardarTraza();
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -57,7 +58,8 @@ public class Cliente {
                             }
                             else if (tipoBusqueda.equals("autor")){
                                 autorLibros = interfaz.pedirAutor(valor,"");
-
+                                tm = new TrazaMovimientos("A", "pedirAutor", valor, new Date());
+                                tm.guardarTraza();
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
                                     return "Autor no encontrado";
@@ -86,13 +88,15 @@ public class Cliente {
                 case "B":
                     {
                         try{
-                            Registry registro = LocateRegistry.getRegistry("127.0.0.1", 7778); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("10.0.0.3", 7778); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.getTitle(valor,"A");
+                                tm = new TrazaMovimientos("B", "getTitle", valor, new Date());
+                                tm.guardarTraza();
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -109,7 +113,8 @@ public class Cliente {
                             }
                             else if (tipoBusqueda.equals("autor")){
                                 autorLibros = interfaz.getAuthor(valor,"A");
-
+                                tm = new TrazaMovimientos("B", "getAuthor", valor, new Date());
+                                tm.guardarTraza();
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
                                     return "Autor no encontrado";
@@ -145,6 +150,8 @@ public class Cliente {
 
                              if (tipoBusqueda.equals("libro")){
                                  libro = interfaz.getTitle(valor,"A");
+                                 tm = new TrazaMovimientos("C", "getTitle", valor, new Date());
+                                 tm.guardarTraza();
 
                                  if (libro.size() == 0){
                                      System.out.println("Libro no encontrado");
@@ -161,7 +168,8 @@ public class Cliente {
                              }
                              else if (tipoBusqueda.equals("autor")){
                                  autorLibros = interfaz.getAuthor(valor,"A");
-
+                                 tm = new TrazaMovimientos("C", "getAuthor", valor, new Date());
+                                 tm.guardarTraza();
                                  if (autorLibros.size() == 0){
                                      System.out.println("Autor no encontrado");
                                      return "Autor no encontrado";

@@ -30,3 +30,15 @@ Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fec
 Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:13:41
 Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 02:13:42
 Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:14:09
+Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:09:45
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:10:09
+Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:10:13
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/09/2020 03:10:23
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/09/2020 03:12:06
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:17:52
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:17:59
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/09/2020 03:18:05
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:19:16
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:19:32
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:31:07
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:31:12
