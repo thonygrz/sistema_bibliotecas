@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<libros>
+  <libro>
+    <titulo>Los videos del puente de la Fuerzas Armadas</titulo>
+    <autor>Francis Ferrer</autor>
+    <editorial>La tienda del Centro</editorial>
+    <fecha>18 de agosto de 2014</fecha>
+  </libro>
+
+  <libro>
+    <titulo>100 años de soledad</titulo>
+    <autor>Antonio Banderas</autor>
+    <editorial>Santillana</editorial>
+    <fecha>10 de noviembre de 2011</fecha>
+  </libro>
+
+  <libro>
+    <titulo>Luna lunera</titulo>
+    <autor>Antonio Banderas</autor>
+    <editorial>Eclipse</editorial>
+    <fecha>14 de julio de 2000</fecha>
+  </libro>
+
+  <libro>
+    <titulo>Los Teletubies</titulo>
+    <autor>Juan Moreno</autor>
+    <editorial>La tienda del Centro</editorial>
+    <fecha>11 de enero de 2016</fecha>
+  </libro>
+
+  <libro>
+    <titulo>El nacimiento de Alexander</titulo>
+    <autor>Anthony Rodriguez</autor>
+    <editorial>Candelaria</editorial>
+    <fecha>13 de enero de 1999</fecha>
+  </libro>
+
+  <libro>
+    <titulo>Los videos del puente de la Fuerzas Armadas PARTE II</titulo>
+    <autor>Unicornio Rosales</autor>
+    <editorial>La tienda del Centro</editorial>
+    <fecha>1 de marzo de 2011</fecha>
+  </libro>
+</libros>
