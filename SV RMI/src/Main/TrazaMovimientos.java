@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Main;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+/**
+ *
+ * @author alexander
+ */
+public class TrazaMovimientos {
+    public String origen;
+    public String metodo;
+    public String peticion;
+    public Date fecha;
+    
+    public TrazaMovimientos(String origen, String metodo, String peticion, Date fecha) {
+        this.origen = origen;
+        this.metodo = metodo;
+        this.peticion = peticion;
+        this.fecha = fecha;
+    }
+    
+    public void guardarTraza() {
+        FileWriter fw = null;
+        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        try {
+            fw = new FileWriter("src/Log/logs.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("Origen: Biblioteca " + this.origen + " - Metodo: " + this.metodo + "- Peticion: " + this.peticion + "- Fecha: " + df.format(fecha) + "\n");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+	} finally {
+            if (fw != null) {
+                try {
+                    fw.close();
+		} catch (IOException e) {
+                    e.printStackTrace();
+		}
+            }
+	}
+    } 
+}
