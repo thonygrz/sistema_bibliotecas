@@ -37,6 +37,10 @@ public class Autor extends Thread{
 
     @Override
     public void run(){
+        String biblioteca = this.getBiblioteca();
+        if(biblioteca.equals("")){   
+            this.setBiblioteca("B");
+        }
         try {
             File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

@@ -7,6 +7,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;  
 import org.w3c.dom.Element;  
 import java.io.File;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Autor extends Thread{
@@ -37,6 +38,12 @@ public class Autor extends Thread{
 
     @Override
     public void run(){
+        String biblioteca = this.getBiblioteca();
+        TrazaMovimientos tm;
+       
+        if(biblioteca.equals("")){   
+            this.setBiblioteca("A");
+        }
         try {
             File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -64,6 +71,14 @@ public class Autor extends Thread{
                 }
             }
             System.out.println(libros);
+            
+            if (this.getBiblioteca().contentEquals("A")) {
+                tm = new TrazaMovimientos(this.getBiblioteca(), "pedirAutor", this.getAutor(), new Date());
+            } else {
+                tm = new TrazaMovimientos(this.getBiblioteca(), "getAuthor", this.getAutor(), new Date());
+            }
+            
+            tm.guardarTraza();
             
         }
         catch (Exception e){  
