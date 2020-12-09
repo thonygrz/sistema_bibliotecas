@@ -37,7 +37,7 @@ public class Cliente {
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.getTitle(valor,"");
+                                libro = interfaz.pedirLibro(valor,"");
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -53,7 +53,7 @@ public class Cliente {
                                 }
                             }
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.getAuthor(valor,"");
+                                autorLibros = interfaz.pedirAutor(valor,"");
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
@@ -77,13 +77,13 @@ public class Cliente {
                             return resultado;
                         }
                         catch (Exception ex){
-                            return "Hubo un error al conectar con el servidor de la biblioteca "+biblioteca;
+                            return "Hubo un error al conectar con el servidor de la biblioteca "+biblioteca + "\n\n" + ex.getMessage();
                         }
                     }
                 case "B":
                     {
                         try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7778); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                             // llama a pedir libro en servidor B
                             final StringBuilder builder = new StringBuilder();
@@ -135,7 +135,7 @@ public class Cliente {
                 case "C":
                     {
                        try{
-                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
+                            Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7779); //pedir al servidor B
                              Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                              // llama a pedir libro en servidor B
                              final StringBuilder builder = new StringBuilder();

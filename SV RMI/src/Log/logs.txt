@@ -1,0 +1,19 @@
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: sdfsffs - Fecha: 12/09/2020 01:36:25
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Antonio Banderas - Fecha: 12/09/2020 01:37:07
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: Antonio Banderas - Fecha: 12/09/2020 01:37:11
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: scsdcds - Fecha: 12/09/2020 01:41:15
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:26
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:29
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:30
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:30
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:31
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:35
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:49
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:51
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:52
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:27
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:27
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:44:29
