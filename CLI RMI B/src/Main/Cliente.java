@@ -61,7 +61,6 @@ public class Cliente {
                         Registry registro = LocateRegistry.getRegistry("192.168.99.1", 7777); //pedir al servidor B
                         Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
                         // llama a pedir libro en servidor B
-<<<<<<< HEAD:CLI RMI B/src/Main/Cliente.java
                         final StringBuilder builder = new StringBuilder();
 
                         if (tipoBusqueda.equals("libro")){
@@ -79,18 +78,6 @@ public class Cliente {
                                  });
                                 //System.out.println(autor);
                             }
-=======
-                        //libro = interfaz.buscarTitulo("Los videos del puente de la Fuerzas Armadas PARTE II","");
-                        autorLibros = interfaz.buscarAutor("Antonio Banderas","");
-                        
-                        //System.out.println("La suma es " + suma);
-                        if (libro == null){
-                            System.out.println("Libro no encontrado");
-                        }
-                        else {
-                             libro.forEach((item) -> System.out.println(item));
-                            //System.out.println(autor);
->>>>>>> 96b55e484fd6d231c55cf07db5ade35061cb4c41:CLI RMI B/src/Cliente.java
                         }
                         else if (tipoBusqueda.equals("autor")){
                             autorLibros = interfaz.getAuthor(valor,"");
