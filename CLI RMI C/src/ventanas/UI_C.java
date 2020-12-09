@@ -5,8 +5,8 @@
  */
 package ventanas;
 import Main.Cliente;
-import FiveCodMover.FiveCodMoverJFrame;
-import com.sun.awt.AWTUtilities;
+//import FiveCodMover.FiveCodMoverJFrame;
+//import com.sun.awt.AWTUtilities;
 /**
  *
  * @author Thony
@@ -20,7 +20,7 @@ public class UI_C extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(this);
-        AWTUtilities.setWindowOpaque(this, false);
+        //AWTUtilities.setWindowOpaque(this, false);
     }
 
     /**
@@ -252,11 +252,11 @@ public class UI_C extends javax.swing.JFrame {
     }//GEN-LAST:event_pressed
 
     private void move(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_move
-        FiveCodMoverJFrame.MousePressed(evt);
+        //FiveCodMoverJFrame.MousePressed(evt);
     }//GEN-LAST:event_move
 
     private void dragg(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragg
-        FiveCodMoverJFrame.MouseDraggedFrame(evt, this);
+        //FiveCodMoverJFrame.MouseDraggedFrame(evt, this);
     }//GEN-LAST:event_dragg
 
     /**
