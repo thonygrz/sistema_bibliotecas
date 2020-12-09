@@ -5,6 +5,8 @@
  */
 package ventanas;
 import Main.Cliente;
+import FiveCodMover.FiveCodMoverJFrame;
+import com.sun.awt.AWTUtilities;
 /**
  *
  * @author Thony
@@ -15,7 +17,10 @@ public class UI_C extends javax.swing.JFrame {
      * Creates new form UI_A
      */
     public UI_C() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(this);
+        AWTUtilities.setWindowOpaque(this, false);
     }
 
     /**
@@ -51,7 +56,7 @@ public class UI_C extends javax.swing.JFrame {
 
         buscarLibroButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         buscarLibroButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libro.png"))); // NOI18N
-        buscarLibroButton.setText("Buscar libro");
+        buscarLibroButton.setText("Encontrar Vol");
         buscarLibroButton.setActionCommand("");
         buscarLibroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,12 +65,12 @@ public class UI_C extends javax.swing.JFrame {
         });
 
         bibliotecaComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bibliotecaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca A", "Biblioteca B", "Biblioteca C" }));
+        bibliotecaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca C", "Biblioteca A", "Biblioteca B", " " }));
 
         buscarAutorButton.setBackground(new java.awt.Color(204, 204, 204));
         buscarAutorButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         buscarAutorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario (2).png"))); // NOI18N
-        buscarAutorButton.setText("Buscar autor");
+        buscarAutorButton.setText("Encontrar autor");
         buscarAutorButton.setActionCommand("");
         buscarAutorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +95,12 @@ public class UI_C extends javax.swing.JFrame {
         });
 
         tituloPanel.setBackground(new java.awt.Color(0, 0, 0));
+        tituloPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tituloPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pressed(evt);
+            }
+        });
 
         tituloLabel.setFont(new java.awt.Font("Montserrat SemiBold", 0, 36)); // NOI18N
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,6 +116,17 @@ public class UI_C extends javax.swing.JFrame {
         jPanel1.add(libroLabel);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                move(evt);
+                dragg(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                move(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,10 +148,10 @@ public class UI_C extends javax.swing.JFrame {
                             .addGap(220, 220, 220)
                             .addComponent(bibliotecaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(150, 150, 150)
-                            .addComponent(buscarLibroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(141, 141, 141)
+                            .addComponent(buscarLibroButton)
                             .addGap(10, 10, 10)
-                            .addComponent(buscarAutorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buscarAutorButton))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(180, 180, 180)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,6 +247,17 @@ public class UI_C extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cerrarButtonActionPerformed
+
+    private void pressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pressed
+    }//GEN-LAST:event_pressed
+
+    private void move(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_move
+        FiveCodMoverJFrame.MousePressed(evt);
+    }//GEN-LAST:event_move
+
+    private void dragg(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragg
+        FiveCodMoverJFrame.MouseDraggedFrame(evt, this);
+    }//GEN-LAST:event_dragg
 
     /**
      * @param args the command line arguments

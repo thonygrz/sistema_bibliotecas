@@ -17,3 +17,16 @@ Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fec
 Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
 Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
 Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:44:29
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:12
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:14
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:14
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:15
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:25
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:25
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:26
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:28
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:28
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:29
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:13:41
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 02:13:42
+Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:14:09

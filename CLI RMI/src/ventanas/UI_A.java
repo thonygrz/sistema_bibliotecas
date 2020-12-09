@@ -15,7 +15,9 @@ public class UI_A extends javax.swing.JFrame {
      * Creates new form UI_A
      */
     public UI_A() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**

@@ -37,7 +37,7 @@ public class Cliente {
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.pedirLibro(valor,"");
+                                libro = interfaz.getTitle(valor,"");
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -53,7 +53,7 @@ public class Cliente {
                                 }
                             }
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.pedirAutor(valor,"");
+                                autorLibros = interfaz.getAuthor(valor,"");
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
@@ -141,7 +141,7 @@ public class Cliente {
                              final StringBuilder builder = new StringBuilder();
 
                              if (tipoBusqueda.equals("libro")){
-                                 libro = interfaz.getTitle(valor,"");
+                                 libro = interfaz.encontrarVol(valor,"");
 
                                  if (libro.size() == 0){
                                      System.out.println("Libro no encontrado");
@@ -157,7 +157,7 @@ public class Cliente {
                                  }
                              }
                              else if (tipoBusqueda.equals("autor")){
-                                 autorLibros = interfaz.getAuthor(valor,"");
+                                 autorLibros = interfaz.encontrarAutor(valor,"");
 
                                  if (autorLibros.size() == 0){
                                      System.out.println("Autor no encontrado");
