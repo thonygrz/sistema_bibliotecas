@@ -37,7 +37,7 @@ public class Cliente {
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.getTitle(valor,"");
+                                libro = interfaz.pedirLibro(valor,"");
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -53,7 +53,7 @@ public class Cliente {
                                 }
                             }
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.getAuthor(valor,"");
+                                autorLibros = interfaz.pedirAutor(valor,"");
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
