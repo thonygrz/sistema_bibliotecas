@@ -1,6 +1,0 @@
-Origen: Biblioteca A - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/09/2020 03:10:53
-Origen: Biblioteca A - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/09/2020 03:11:17
-Origen: Biblioteca B - Metodo: buscarTitulo - Peticion: Luna Lunera - Fecha: 12/09/2020 03:11:57
-Origen: Biblioteca B - Metodo: buscarAutor - Peticion: Luna Lunera - Fecha: 12/09/2020 03:12:07
-Origen: Biblioteca B - Metodo: buscarTitulo - Peticion: Luna Lunera - Fecha: 12/09/2020 03:12:10
-Origen: Biblioteca B - Metodo: buscarTitulo - Peticion: Luna lunera - Fecha: 12/09/2020 03:12:22
