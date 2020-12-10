@@ -40,6 +40,7 @@ public class Cliente {
 
                             if (tipoBusqueda.equals("libro")){
                                 libro = interfaz.getTitle(valor,"C");
+
                                 tm = new TrazaMovimientos("A", "getTitle", valor, new Date());
                                 tm.guardarTraza();
 
@@ -58,6 +59,7 @@ public class Cliente {
                             }
                             else if (tipoBusqueda.equals("autor")){
                                 autorLibros = interfaz.getAuthor(valor,"C");
+
                                 tm = new TrazaMovimientos("A", "getAuthor", valor, new Date());
                                 tm.guardarTraza();
 
