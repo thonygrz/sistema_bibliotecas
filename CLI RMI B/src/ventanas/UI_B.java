@@ -69,7 +69,7 @@ public class UI_B extends javax.swing.JFrame {
         buscarLibroButton.getAccessibleContext().setAccessibleName("buscarButton");
 
         bibliotecaComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bibliotecaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca A", "Biblioteca B", "Biblioteca C" }));
+        bibliotecaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Biblioteca B", "Biblioteca A", "Biblioteca C" }));
         getContentPane().add(bibliotecaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 170, 30));
 
         buscarAutorButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -123,8 +123,8 @@ public class UI_B extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 170, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo3.jpeg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 600, 390));
         jLabel1.getAccessibleContext().setAccessibleName("labelFondo");
 
         pack();
