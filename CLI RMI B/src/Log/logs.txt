@@ -1,4 +1,0 @@
-Destino: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:19:16
-Destino: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:19:32
-Destino: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:31:07
-Destino: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:31:12
