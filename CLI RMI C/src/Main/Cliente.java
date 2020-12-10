@@ -37,11 +37,7 @@ public class Cliente {
                             final StringBuilder builder = new StringBuilder();
 
                             if (tipoBusqueda.equals("libro")){
-<<<<<<< HEAD
-                                libro = interfaz.getTitle(valor,"");
-=======
-                                libro = interfaz.pedirLibro(valor,"C");
->>>>>>> 81f708a2a01a46b7f96d95929833ed3b841f1d5b
+                                libro = interfaz.getTitle(valor,"C");
 
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
@@ -57,11 +53,7 @@ public class Cliente {
                                 }
                             }
                             else if (tipoBusqueda.equals("autor")){
-<<<<<<< HEAD
-                                autorLibros = interfaz.getAuthor(valor,"");
-=======
-                                autorLibros = interfaz.pedirAutor(valor,"C");
->>>>>>> 81f708a2a01a46b7f96d95929833ed3b841f1d5b
+                                autorLibros = interfaz.getAuthor(valor,"C");
 
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
