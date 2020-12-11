@@ -1,1 +1,3 @@
-
+Origen: Biblioteca C - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/10/2020 00:31:21
+Origen: Biblioteca C - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:31:36
+Origen: Biblioteca A - Metodo: pedirAutor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:33:32
