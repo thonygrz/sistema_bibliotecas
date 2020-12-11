@@ -31,7 +31,7 @@ public class Cliente {
                                 libro = interfaz.getTitle(valor,"C");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("A", "pedirLibro", valor, new Date());
+                                tm = new TrazaMovimientos("A", "getTitle", valor, new Date());
                                 tm.guardarTraza();
                                 
                                 // se arregla el mensaje a mostrar
@@ -52,7 +52,7 @@ public class Cliente {
                                 autorLibros = interfaz.getAuthor(valor,"C");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("A", "pedirAutor", valor, new Date());
+                                tm = new TrazaMovimientos("A", "getAuthor", valor, new Date());
                                 tm.guardarTraza();
                                 
                                 // se arregla el mensaje a mostrar
@@ -161,7 +161,7 @@ public class Cliente {
                                  libro = interfaz.encontrarVol(valor,"");
                                  
                                  // se ejecutan los logs del cliente
-                                 tm = new TrazaMovimientos("C", "getTitle", valor, new Date());
+                                 tm = new TrazaMovimientos("C", "encontrarVol", valor, new Date());
                                  tm.guardarTraza();
 
                                  // se arregla el mensaje a mostrar
@@ -182,7 +182,7 @@ public class Cliente {
                                  autorLibros = interfaz.encontrarAutor(valor,"");
                                  
                                  // se ejecutan los logs del cliente
-                                 tm = new TrazaMovimientos("C", "getAuthor", valor, new Date());
+                                 tm = new TrazaMovimientos("C", "encontrarAutor", valor, new Date());
                                  tm.guardarTraza();
                                  
                                  // se arregla el mensaje a mostrar
