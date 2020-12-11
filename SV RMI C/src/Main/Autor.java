@@ -1,5 +1,4 @@
 package Main;
-
 import javax.xml.parsers.DocumentBuilderFactory;  
 import javax.xml.parsers.DocumentBuilder;  
 import org.w3c.dom.Document;  
@@ -7,44 +6,55 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;  
 import org.w3c.dom.Element;  
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.ArrayList;
 
+//Clase que contiene la zona excluida para buscar el autor y que se llama en la clase ServerRMI.java
 public class Autor extends Thread{
     private String autor;
     private String biblioteca;
     public ArrayList<ArrayList<String>> libros = new ArrayList();
 
+    // Constructor de la Clase
     public Autor(String autor, String biblioteca) {
         this.autor = autor;
         this.biblioteca = biblioteca;
     }
 
+    //Getter del autor
     public String getAutor() {
         return autor;
     }
 
+    //Setter del autor
     public void setAutor(String autor) {
         this.autor = autor;
     }
-
+    
+    //Getter de Bliblioteca
     public String getBiblioteca() {
         return biblioteca;
     }
 
+    //Setter de Biblioteca
     public void setBiblioteca(String biblioteca) {
         this.biblioteca = biblioteca;
     }
 
+    //Metodo run engloba la zona excluida
+    //Lectura de archivo XML (Base de Datos)
     @Override
     public void run(){
         String biblioteca = this.getBiblioteca();
         TrazaMovimientos tm;
        
+        //Si es vacio se setea el valor de la biblioteca a la que pertenece
         if(biblioteca.equals("")){   
             this.setBiblioteca("C");
         }
         try {
+            //Se busca el archivo
+            //Se crea la clase para lectura
             File file = new File("src/DB/books.xml");
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();  
@@ -55,6 +65,7 @@ public class Autor extends Thread{
             
             NodeList nodeList = doc.getElementsByTagName("libro");
             
+            //Bucle para correr el archivo XML y devolver los libros por autor
             for (int itr = 0; itr < nodeList.getLength(); itr++){
                 Node node = nodeList.item(itr);
                 if (node.getNodeType() == Node.ELEMENT_NODE){  
@@ -72,6 +83,7 @@ public class Autor extends Thread{
             }
             System.out.println(libros);
             
+            //Creamos la traza de movimientos
             if (this.getBiblioteca().contentEquals("C")) {
                 tm = new TrazaMovimientos(this.getBiblioteca(), "encontrarAutor", this.getAutor(), new Date());
             } else {
