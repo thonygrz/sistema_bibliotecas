@@ -97,11 +97,8 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
             ip = InetAddress.getLocalHost();
             hostname = ip.getHostName();
             
-<<<<<<< HEAD
             java.lang.System.setProperty("java.rmi.server.hostname", "10.0.0.4");
-=======
 //            java.lang.System.setProperty("java.rmi.server.hostname", "127.0.0.4");
->>>>>>> 08e61a34fcd5ae90fc811a4f4d135669218326ff
             Registry registro = LocateRegistry.createRegistry(7779);
             registro.rebind("RemoteRMIC", new ServerRMI()); //mantenemos el servidor en escucha
             System.out.println("Servidor Corriendo en: " + ip);
