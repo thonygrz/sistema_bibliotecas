@@ -9,3 +9,11 @@ Destino: Biblioteca C - Metodo: getAuthor - Peticion: Unicornio Rosales - Fecha:
 Destino: Biblioteca C - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:22:13
 Destino: Biblioteca C - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/11/2020 01:31:07
 Destino: Biblioteca C - Metodo: getAuthor - Peticion: Unicornio Rosales - Fecha: 12/11/2020 01:31:31
+Destino: Biblioteca C - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/11/2020 01:41:27
+Destino: Biblioteca C - Metodo: getAuthor - Peticion: Luna lunera - Fecha: 12/11/2020 01:41:38
+Destino: Biblioteca C - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:41:51
+Destino: Biblioteca C - Metodo: getTitle - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:41:56
+Destino: Biblioteca A - Metodo: pedirAutor - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:42:00
+Destino: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/11/2020 01:42:12
+Destino: Biblioteca A - Metodo: pedirLibro - Peticion: dsfs - Fecha: 12/11/2020 01:44:40
+Destino: Biblioteca A - Metodo: pedirAutor - Peticion: dsfs - Fecha: 12/11/2020 01:44:45
