@@ -70,8 +70,8 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Biblioteca A"/>
-            <StringItem index="1" value="Biblioteca B"/>
+            <StringItem index="0" value="Biblioteca B"/>
+            <StringItem index="1" value="Biblioteca A"/>
             <StringItem index="2" value="Biblioteca C"/>
           </StringArray>
         </Property>
@@ -217,7 +217,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/fondo.png"/>
+          <Image iconType="3" name="/imagenes/fondo3.jpeg"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
@@ -225,7 +225,7 @@
       </AccessibilityProperties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="60" width="600" height="390"/>
         </Constraint>
       </Constraints>
     </Component>

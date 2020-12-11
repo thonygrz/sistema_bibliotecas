@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 
+=======
+Destino: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:19:16
+Destino: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:19:32
+Destino: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:31:07
+Destino: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:31:12
+Destino: Biblioteca A - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/10/2020 00:31:21
+Destino: Biblioteca A - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:31:36
+Destino: Biblioteca C - Metodo: encontrarAutor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:33:28
+>>>>>>> 08e61a34fcd5ae90fc811a4f4d135669218326ff
