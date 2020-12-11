@@ -6,11 +6,6 @@ package Main;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author Alexis
- */
-
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -97,8 +92,8 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
             ip = InetAddress.getLocalHost();
             hostname = ip.getHostName();
             
-            java.lang.System.setProperty("java.rmi.server.hostname", "10.0.0.2");
-            Registry registro = LocateRegistry.createRegistry(7778);
+            java.lang.System.setProperty("java.rmi.server.hostname", "10.2.126.84");
+            Registry registro = LocateRegistry.createRegistry(7777);
             registro.rebind("RemoteRMIB", new ServerRMI()); //mantenemos el servidor en escucha
             System.out.println("Servidor Corriendo en: " + ip);
             System.out.println("Servidor Corriendo en: " + hostname);

@@ -1,4 +1,11 @@
 package Main;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -19,19 +26,18 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-//Contiene la logica de los metodos remotos que se van a llamar desde el cliente
 public class ServerRMI extends UnicastRemoteObject implements Middleware {
     public ServerRMI() throws RemoteException {
         super();
     }
     
-    //metodo con lenguaje de la biblioteca para encontrar el libro por volumen
     @Override
     public ArrayList encontrarVol(String valor,String biblioteca) throws RemoteException {
         Libro libro = new Libro(valor,biblioteca);
         try{
             //Crear el hilo
-            //Ejecutamos el hilo en un bloque de synchronized para que el monitor maneje la cola de procesos
+            
+            //Ejecutamos el hilo en un bloque de synchronized
             synchronized(this){
                 libro.start();
                 libro.join();
@@ -45,13 +51,12 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
         return libro.libro;
     }
     
-    //metodo con lenguaje de la biblioteca para encontrar el autor por volumen
     @Override
     public ArrayList encontrarAutor(String valor, String biblioteca) throws RemoteException {
         Autor autor = new Autor(valor,biblioteca);
         try{
             //Crear el hilo
-            //Ejecutamos el hilo en un bloque de synchronized para que el monitor maneje la cola de procesos
+            //Ejecutamos el hilo en un bloque de synchronized
             synchronized(this){
                 autor.start();
                 autor.join();
@@ -65,8 +70,6 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
         return autor.libros;
     }
     
-    //Lenguaje Z39 transforma la llegada del metodo por RMI a lenguaje de la biblioteca 
-    //llamando al metodo del lenguaje habitual para conseguir el libro por titulo
     @Override
     synchronized public ArrayList getTitle(String value, String biblioteca) throws RemoteException {
         ArrayList libro = new ArrayList();
@@ -75,8 +78,6 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
 
     }
     
-    //Lenguaje Z39 transforma la llegada del metodo por RMI a lenguaje de la biblioteca 
-    //llamando al metodo del lenguaje habitual para conseguir el libro por autor
     @Override
     synchronized public ArrayList getAuthor(String value, String biblioteca) throws RemoteException {
         ArrayList<String> libro = new ArrayList();
@@ -84,7 +85,6 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
         return libro;
     }   
     
-    //Configuracion del RMI
     public static void main(String[] args) {
         InetAddress ip;
         String hostname;
@@ -92,12 +92,9 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
             ip = InetAddress.getLocalHost();
             hostname = ip.getHostName();
             
-            //Obligamos al RMI a usar una IP especifica
             java.lang.System.setProperty("java.rmi.server.hostname", "10.2.126.74");
-            //Seleccionamos el puerto TCP para escuchar
-            Registry registro = LocateRegistry.createRegistry(7779);
-            registro.rebind("RemoteRMIC", new ServerRMI());
-            //mantenemos el servidor en escucha
+            Registry registro = LocateRegistry.createRegistry(7777);
+            registro.rebind("RemoteRMIC", new ServerRMI()); //mantenemos el servidor en escucha
             System.out.println("Servidor Corriendo en: " + ip);
             System.out.println("Servidor Corriendo en: " + hostname);
         } catch (RemoteException ex) {
