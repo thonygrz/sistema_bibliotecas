@@ -1,25 +1,11 @@
 package Main;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Alexis
- */
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Cliente {
-    public static void main(String[] args) {
-        Cliente cliente = new Cliente();
-        //cliente.connectServer("100 años de soledad");
-    }
     
     public String connectServer(String valor, String biblio, String tipoBusqueda) {
         try {
@@ -28,23 +14,27 @@ public class Cliente {
             String biblioteca = biblio;
             TrazaMovimientos tm;
             
-            // SI ES de A --> A, no pasa por el middleware
             switch (biblioteca) {
                 case "A":
                     {
                         try {
 
-                            Registry registro = LocateRegistry.getRegistry("10.2.126.73", 7777); //pedir al servidor B
+                            // Se hace la conexión RMI
+                            Registry registro = LocateRegistry.getRegistry("10.2.126.73", 7777);
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMI");
-                            // llama a pedir libro en servidor B
+                            
                             final StringBuilder builder = new StringBuilder();
-
+                            
+                            // Si la peticion fue de libro
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.getTitle(valor,"C");
-
-                                tm = new TrazaMovimientos("A", "getTitle", valor, new Date());
+                                // se ejecuta el método con lenguaje Z39 con RMI
+                                libro = interfaz.encontrarVol(valor,"");
+                                
+                                // se ejecutan los logs del cliente
+                                tm = new TrazaMovimientos("A", "pedirLibro", valor, new Date());
                                 tm.guardarTraza();
-
+                                
+                                // se arregla el mensaje a mostrar
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
                                     return "Libro no encontrado";
@@ -55,15 +45,17 @@ public class Cliente {
                                          System.out.println(item);
                                          builder.append(item + "\n");
                                      });
-                                    //System.out.println(autor);
                                 }
-                            }
+                            } // Si la peticion fue de autor
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.getAuthor(valor,"C");
-
-                                tm = new TrazaMovimientos("A", "getAuthor", valor, new Date());
+                                // se ejecuta el método con lenguaje Z39 con RMI 
+                                autorLibros = interfaz.encontrarAutor(valor,"");
+                                
+                                // se ejecutan los logs del cliente
+                                tm = new TrazaMovimientos("A", "pedirAutor", valor, new Date());
                                 tm.guardarTraza();
-
+                                
+                                // se arregla el mensaje a mostrar
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
                                     return "Autor no encontrado";
@@ -82,7 +74,6 @@ public class Cliente {
 
                             String resultado = builder.toString();
 
-                            System.out.println("Se va a enviar al cliente:"+resultado);
                             return resultado;
                         }
                         catch (Exception ex){
@@ -92,16 +83,23 @@ public class Cliente {
                 case "B":
                     {
                         try{
+
+                            // Se hace la conexión RMI
                             Registry registro = LocateRegistry.getRegistry("10.2.126.84", 7778); //pedir al servidor B
                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIB");
-                            // llama a pedir libro en servidor B
+                            
                             final StringBuilder builder = new StringBuilder();
 
+                            // Si la peticion fue de libro
                             if (tipoBusqueda.equals("libro")){
-                                libro = interfaz.getTitle(valor,"C");
+                                // se ejecuta el método con lenguaje Z39 con RMI
+                                libro = interfaz.getTitle(valor,"A");
+                                
+                                // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("B", "getTitle", valor, new Date());
                                 tm.guardarTraza();
 
+                                // se arregla el mensaje a mostrar
                                 if (libro.size() == 0){
                                     System.out.println("Libro no encontrado");
                                     return "Libro no encontrado";
@@ -112,14 +110,17 @@ public class Cliente {
                                          System.out.println(item);
                                          builder.append(item + "\n");
                                      });
-                                    //System.out.println(autor);
                                 }
-                            }
+                            } // Si la peticion fue de autor
                             else if (tipoBusqueda.equals("autor")){
-                                autorLibros = interfaz.getAuthor(valor,"C");
+                                // se ejecuta el método con lenguaje Z39 con RMI 
+                                autorLibros = interfaz.getAuthor(valor,"A");
+                                
+                                // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("B", "getAuthor", valor, new Date());
                                 tm.guardarTraza();
-
+                                
+                                // se arregla el mensaje a mostrar
                                 if (autorLibros.size() == 0){
                                     System.out.println("Autor no encontrado");
                                     return "Autor no encontrado";
@@ -138,7 +139,6 @@ public class Cliente {
 
                             String resultado = builder.toString();
 
-                            System.out.println("Se va a enviar al cliente:"+resultado);
                             return resultado;
                         }
                         catch (Exception ex){
@@ -149,16 +149,22 @@ public class Cliente {
                     {
                        try{
 
-                             Registry registro = LocateRegistry.getRegistry("10.2.126.74", 7779); //pedir al servidor B
+                             // Se hace la conexión RMI
+                             Registry registro = LocateRegistry.getRegistry("10.2.126.74", 7779);
                              Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
-                             // llama a pedir libro en servidor B
+                             
                              final StringBuilder builder = new StringBuilder();
-
+                             
+                             // Si la peticion fue de libro
                              if (tipoBusqueda.equals("libro")){
-                                 libro = interfaz.encontrarVol(valor,"");
-                                 tm = new TrazaMovimientos("C", "encontrarVol", valor, new Date());
+                                 // se ejecuta el método del mismo servidor con RMI 
+                                 libro = interfaz.getTitle(valor,"A");
+                                 
+                                 // se ejecutan los logs del cliente
+                                 tm = new TrazaMovimientos("C", "getTitle", valor, new Date());
                                  tm.guardarTraza();
 
+                                 // se arregla el mensaje a mostrar
                                  if (libro.size() == 0){
                                      System.out.println("Libro no encontrado");
                                      return "Libro no encontrado";
@@ -169,14 +175,17 @@ public class Cliente {
                                           System.out.println(item);
                                           builder.append(item + "\n");
                                       });
-                                     //System.out.println(autor);
                                  }
-                             }
+                             } // Si la peticion fue de libro
                              else if (tipoBusqueda.equals("autor")){
-                                 autorLibros = interfaz.encontrarAutor(valor,"");
-                                 tm = new TrazaMovimientos("C", "encontrarAutor", valor, new Date());
+                                 // se ejecuta el método del mismo servidor con RMI 
+                                 autorLibros = interfaz.getAuthor(valor,"A");
+                                 
+                                 // se ejecutan los logs del cliente
+                                 tm = new TrazaMovimientos("C", "getAuthor", valor, new Date());
                                  tm.guardarTraza();
-
+                                 
+                                 // se arregla el mensaje a mostrar
                                  if (autorLibros.size() == 0){
                                      System.out.println("Autor no encontrado");
                                      return "Autor no encontrado";
@@ -195,7 +204,6 @@ public class Cliente {
 
                              String resultado = builder.toString();
 
-                             System.out.println("Se va a enviar al cliente:"+resultado);
                              return resultado;
                         }
                         catch (Exception ex){
