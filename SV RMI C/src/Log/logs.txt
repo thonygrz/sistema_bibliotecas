@@ -1,50 +1,15 @@
-<<<<<<< HEAD
-=======
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: sdfsffs - Fecha: 12/09/2020 01:36:25
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Antonio Banderas - Fecha: 12/09/2020 01:37:07
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: Antonio Banderas - Fecha: 12/09/2020 01:37:11
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: scsdcds - Fecha: 12/09/2020 01:41:15
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:26
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:29
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:30
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:30
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:31
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:35
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:49
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:51
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:41:52
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:27
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:27
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:43:28
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 01:44:29
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:12
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:14
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:14
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:15
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:12:25
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:25
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:26
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:28
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:28
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: 100 años de soledad - Fecha: 12/09/2020 02:13:29
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:13:41
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 02:13:42
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 02:14:09
-Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:09:45
-Origen: Biblioteca B - Metodo: getAuthor - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:10:09
-Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/09/2020 03:10:13
-Origen: Biblioteca B - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/09/2020 03:10:23
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/09/2020 03:12:06
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:17:52
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:17:59
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/09/2020 03:18:05
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:19:16
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:19:32
-Origen: Biblioteca A - Metodo: pedirLibro - Peticion:  - Fecha: 12/09/2020 03:31:07
-Origen: Biblioteca A - Metodo: pedirAutor - Peticion:  - Fecha: 12/09/2020 03:31:12
-Origen: Biblioteca A - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/10/2020 00:32:04
-Origen: Biblioteca A - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:32:46
-Origen: Biblioteca C - Metodo: encontrarAutor - Peticion: Antonio Banderas - Fecha: 12/10/2020 00:33:28
->>>>>>> 08e61a34fcd5ae90fc811a4f4d135669218326ff
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 23:27:02
+Origen: Biblioteca A - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 23:27:10
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 23:27:46
+Origen: Biblioteca A - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 23:27:47
+Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/10/2020 23:28:22
+Origen: Biblioteca B - Metodo: getTitle - Peticion: 100 años de soledad - Fecha: 12/10/2020 23:28:55
+Origen: Biblioteca B - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/10/2020 23:29:13
+Origen: Biblioteca B - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/10/2020 23:32:00
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Luna lunera - Fecha: 12/10/2020 23:33:06
+Origen: Biblioteca B - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/10/2020 23:34:04
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/10/2020 23:34:17
+Origen: Biblioteca C - Metodo: encontrarVol - Peticion: Luna lunera - Fecha: 12/10/2020 23:35:43
+Origen: Biblioteca B - Metodo: getAuthor - Peticion: Francis Ferrer - Fecha: 12/10/2020 23:35:51
+Origen: Biblioteca C - Metodo: encontrarAutor - Peticion: Francis Ferrer - Fecha: 12/10/2020 23:36:02
+Origen: Biblioteca A - Metodo: getAuthor - Peticion: Unicornio Rosales - Fecha: 12/10/2020 23:37:56
