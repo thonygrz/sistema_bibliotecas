@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ventanas;
 import Main.Cliente;
 /**
@@ -175,11 +170,15 @@ public class UI_A extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_valorTextFieldActionPerformed
 
+    // se ejecuta este metodo al presionar 'Buscar Libro'
     private void buscarLibroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarLibroButtonActionPerformed
-        // TODO add your handling code here:
+        // se instancia un objeto cliente
         Cliente cliente = new Cliente();
+        
+        // se obtiene la biblioteca seleccionada del Combo Box
         String biblio = this.bibliotecaComboBox.getSelectedItem().toString();
 
+        // se cambia el mensaje a enviar al cliente
         switch (biblio) {
             case "Biblioteca A":
             biblio = "A";
@@ -195,15 +194,21 @@ public class UI_A extends javax.swing.JFrame {
             break;
         }
 
+        // se ejecuta el cliente enviando el valor escrito, biblioteca seleccionada y tipo de peticion
         String res = cliente.connectServer(this.valorTextField.getText(),biblio,"libro");
+        
+        // se muestra el resultado en un 'Text Area'
         resultadoTextArea.setText(res);
     }//GEN-LAST:event_buscarLibroButtonActionPerformed
 
     private void buscarAutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAutorButtonActionPerformed
-        // TODO add your handling code here:
+        // se instancia un objeto cliente
         Cliente cliente = new Cliente();
+        
+        // se obtiene la biblioteca seleccionada del Combo Box
         String biblio = this.bibliotecaComboBox.getSelectedItem().toString();
 
+        // se cambia el mensaje a enviar al cliente
         switch (biblio) {
             case "Biblioteca A":
             biblio = "A";
@@ -219,12 +224,16 @@ public class UI_A extends javax.swing.JFrame {
             break;
         }
 
+        // se ejecuta el cliente enviando el valor escrito, biblioteca seleccionada y tipo de peticion
         String res = cliente.connectServer(this.valorTextField.getText(),biblio,"autor");
+        
+        // se muestra el resultado en un 'Text Area'
         resultadoTextArea.setText(res);
     }//GEN-LAST:event_buscarAutorButtonActionPerformed
 
+    // se ejecuta este metodo al presionar el botón 'Salir'
     private void cerrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarButtonActionPerformed
-        // TODO add your handling code here:
+        // se cierra la ventana
         this.dispose();
     }//GEN-LAST:event_cerrarButtonActionPerformed
 
@@ -255,7 +264,7 @@ public class UI_A extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        // se crea y se muestra el form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UI_A().setVisible(true);
