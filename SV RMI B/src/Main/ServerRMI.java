@@ -95,7 +95,7 @@ public class ServerRMI extends UnicastRemoteObject implements Middleware {
             //Obligamos al RMI a usar una IP especifica
             java.lang.System.setProperty("java.rmi.server.hostname", "10.2.126.84");
             //Seleccionamos el puerto TCP para escuchar
-            Registry registro = LocateRegistry.createRegistry(7779);
+            Registry registro = LocateRegistry.createRegistry(7778);
             registro.rebind("RemoteRMIB", new ServerRMI());
             //mantenemos el servidor en escucha
             System.out.println("Servidor Corriendo en: " + ip);
