@@ -30,7 +30,7 @@ public class Cliente {
                                 libro = interfaz.getTitle(valor,"");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("A", "pedirLibro", valor, new Date());
+                                tm = new TrazaMovimientos("A", "getTitle", valor, new Date());
                                 tm.guardarTraza();
                                 
                                 // se arregla el mensaje a mostrar
@@ -51,7 +51,7 @@ public class Cliente {
                                 autorLibros = interfaz.getAuthor(valor,"B");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("A", "pedirAutor", valor, new Date());
+                                tm = new TrazaMovimientos("A", "getAuthor", valor, new Date());
                                 tm.guardarTraza();
                                 
                                 // se arregla el mensaje a mostrar
@@ -94,7 +94,7 @@ public class Cliente {
                                 libro = interfaz.buscarTitulo(valor,"");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("B", "getTitle", valor, new Date());
+                                tm = new TrazaMovimientos("B", "buscarTitulo", valor, new Date());
                                 tm.guardarTraza();
 
                                 // se arregla el mensaje a mostrar
@@ -115,7 +115,7 @@ public class Cliente {
                                 autorLibros = interfaz.buscarAutor(valor,"");
                                 
                                 // se ejecutan los logs del cliente
-                                tm = new TrazaMovimientos("B", "getAuthor", valor, new Date());
+                                tm = new TrazaMovimientos("B", "buscarAutor", valor, new Date());
                                 tm.guardarTraza();
                                 
                                 // se arregla el mensaje a mostrar
