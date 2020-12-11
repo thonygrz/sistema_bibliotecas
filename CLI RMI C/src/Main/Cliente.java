@@ -148,7 +148,7 @@ public class Cliente {
                        try{
                             // Se hace la conexión RMI
                             Registry registro = LocateRegistry.getRegistry("10.2.126.74", 7779); //pedir al servidor B
-                             Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
+                            Middleware interfaz = (Middleware)registro.lookup("RemoteRMIC");
                              
                              final StringBuilder builder = new StringBuilder();
                              

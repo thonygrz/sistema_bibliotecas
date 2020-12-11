@@ -6,11 +6,6 @@ package Main;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author Alexis
- */
-
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
