@@ -3,6 +3,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+//Interfaz que define los metodos en Z39 y el del lenguaje de la biblioteca.
 public interface Middleware extends Remote{
     public ArrayList buscarTitulo(String valor, String biblioteca) throws RemoteException;
     public ArrayList buscarAutor(String valor, String biblioteca) throws RemoteException;

@@ -31,7 +31,7 @@ public class Autor extends Thread{
         this.autor = autor;
     }
     
-    //Getter de Bliblioteca
+    //Getter de Biliblioteca
     public String getBiblioteca() {
         return biblioteca;
     }
