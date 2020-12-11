@@ -28,7 +28,7 @@ public class TrazaMovimientos {
         FileWriter fw = null;
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         try {
-            //Buscamos el archivo, si no esta se crea
+            //Definimos la clase File y FileWriter para buscar y escribir en el archivo
             archivo = new File("src/Log/logs.txt");
             fw = new FileWriter(archivo, true);
             BufferedWriter bw = new BufferedWriter(fw);
