@@ -1,4 +1,0 @@
-Destino: Biblioteca A - Metodo: pedirLibro - Peticion: Luna lunera - Fecha: 12/11/2020 01:43:07
-Destino: Biblioteca A - Metodo: pedirAutor - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:43:30
-Destino: Biblioteca C - Metodo: getAuthor - Peticion: Antonio Banderas - Fecha: 12/11/2020 01:44:32
-Destino: Biblioteca C - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/11/2020 01:44:44
