@@ -13,3 +13,5 @@ Origen: Biblioteca C - Metodo: encontrarVol - Peticion: Luna lunera - Fecha: 12/
 Origen: Biblioteca B - Metodo: getAuthor - Peticion: Francis Ferrer - Fecha: 12/10/2020 23:35:51
 Origen: Biblioteca C - Metodo: encontrarAutor - Peticion: Francis Ferrer - Fecha: 12/10/2020 23:36:02
 Origen: Biblioteca A - Metodo: getAuthor - Peticion: Unicornio Rosales - Fecha: 12/10/2020 23:37:56
+Origen: Biblioteca A - Metodo: getTitle - Peticion: Luna lunera - Fecha: 12/11/2020 01:31:07
+Origen: Biblioteca A - Metodo: getAuthor - Peticion: Unicornio Rosales - Fecha: 12/11/2020 01:31:31

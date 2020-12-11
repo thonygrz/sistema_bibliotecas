@@ -27,7 +27,7 @@ public class Cliente {
                             // Si la peticion fue de libro
                             if (tipoBusqueda.equals("libro")){
                                 // se ejecuta el método con lenguaje Z39 con RMI
-                                libro = interfaz.buscarTitulo(valor,"");
+                                libro = interfaz.getTitle(valor,"");
                                 
                                 // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("A", "pedirLibro", valor, new Date());
@@ -48,7 +48,7 @@ public class Cliente {
                             } // Si la peticion fue de autor
                             else if (tipoBusqueda.equals("autor")){
                                 // se ejecuta el método con lenguaje Z39 con RMI 
-                                autorLibros = interfaz.buscarAutor(valor,"");
+                                autorLibros = interfaz.getAuthor(valor,"B");
                                 
                                 // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("A", "pedirAutor", valor, new Date());
@@ -91,7 +91,7 @@ public class Cliente {
                             // Si la peticion fue de libro
                             if (tipoBusqueda.equals("libro")){
                                 // se ejecuta el método del mismo servidor con RMI 
-                                libro = interfaz.getTitle(valor,"A");
+                                libro = interfaz.buscarTitulo(valor,"");
                                 
                                 // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("B", "getTitle", valor, new Date());
@@ -112,7 +112,7 @@ public class Cliente {
                             } // Si la peticion fue de autor
                             else if (tipoBusqueda.equals("autor")){
                                 // se ejecuta el método del mismo servidor con RMI 
-                                autorLibros = interfaz.getAuthor(valor,"A");
+                                autorLibros = interfaz.buscarAutor(valor,"");
                                 
                                 // se ejecutan los logs del cliente
                                 tm = new TrazaMovimientos("B", "getAuthor", valor, new Date());
@@ -155,7 +155,7 @@ public class Cliente {
                              // Si la peticion fue de libro
                              if (tipoBusqueda.equals("libro")){
                                  // se ejecuta el método con lenguaje Z39 con RMI
-                                 libro = interfaz.getTitle(valor,"A");
+                                 libro = interfaz.getTitle(valor,"B");
                                  
                                  // se ejecutan los logs del cliente
                                  tm = new TrazaMovimientos("C", "getTitle", valor, new Date());
@@ -176,7 +176,7 @@ public class Cliente {
                              } // Si la peticion fue de libro
                              else if (tipoBusqueda.equals("autor")){
                                  // se ejecuta el método con lenguaje Z39 con RMI
-                                 autorLibros = interfaz.getAuthor(valor,"A");
+                                 autorLibros = interfaz.getAuthor(valor,"B");
                                  
                                  // se ejecutan los logs del cliente
                                  tm = new TrazaMovimientos("C", "getAuthor", valor, new Date());
